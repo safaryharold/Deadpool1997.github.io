@@ -4,6 +4,7 @@
     --primary-glow: #00bfff; /* Deep Sky Blue */
     --secondary-glow: #9400d3; /* Dark Violet */
     --background-dark: #02001a;
+    --glass-bg: rgba(10, 10, 30, 0.5);
     --text-color: #d0d0d0;
     --text-bright: #ffffff;
     --font-primary: 'Orbitron', sans-serif;
@@ -14,6 +15,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -58,12 +62,25 @@ body {
     padding: 0 2rem;
 }
 
+.content-section {
+    padding: 6rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-bright);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
 /* Header & Nav */
 header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(10, 10, 30, 0.5);
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 191, 255, 0.2);
 }
@@ -160,6 +177,7 @@ li a:hover {
     font-size: 1.1rem;
     margin: 1.5rem 0;
     max-width: 500px;
+    line-height: 1.8;
 }
 
 .cta-button {
@@ -203,20 +221,19 @@ li a:hover {
     100% { transform: translateY(0px); }
 }
 
-/* Skills Section */
-.skills {
-    padding: 6rem 0;
-}
-
-.skills h2 {
+/* About Section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
     text-align: center;
-    font-family: var(--font-primary);
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--text-bright);
-    text-shadow: 0 0 10px var(--primary-glow);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+.about-text p {
+    margin-bottom: 1.5rem;
 }
 
+/* Skills Section */
 .skill-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -224,7 +241,7 @@ li a:hover {
 }
 
 .card {
-    background: rgba(10, 10, 30, 0.6);
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 191, 255, 0.2);
     border-radius: 10px;
@@ -251,6 +268,99 @@ li a:hover {
     margin-bottom: 0.5rem;
 }
 
+/* Portfolio Section */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.portfolio-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    transition: box-shadow 0.3s;
+}
+
+.portfolio-card:hover {
+    box-shadow: 0 10px 40px rgba(0, 191, 255, 0.2);
+}
+
+.portfolio-image {
+    width: 40%;
+    object-fit: cover;
+}
+
+.portfolio-info {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-info h3 {
+    font-family: var(--font-primary);
+    color: var(--text-bright);
+    font-size: 1.8rem;
+}
+
+.portfolio-info p {
+    margin: 1rem 0;
+    flex-grow: 1;
+}
+
+.cta-button-small {
+    display: inline-block;
+    background: transparent;
+    color: var(--primary-glow);
+    border: 1px solid var(--primary-glow);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+.cta-button-small:hover {
+    background: var(--primary-glow);
+    color: var(--background-dark);
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+}
+.contact-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+.contact-links a {
+    color: var(--text-color);
+    font-size: 3rem;
+    margin: 0 1.5rem;
+    transition: all 0.3s;
+}
+.contact-links a:hover {
+    color: var(--primary-glow);
+    transform: scale(1.1);
+    text-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(0, 191, 255, 0.1);
+    font-size: 0.9rem;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 992px) {
     .hero-content {
@@ -266,6 +376,13 @@ li a:hover {
     }
     .text-content p {
         margin: 1.5rem auto;
+    }
+    .portfolio-card {
+        flex-direction: column;
+    }
+    .portfolio-image {
+        width: 100%;
+        height: 250px;
     }
 }
 
@@ -285,6 +402,7 @@ li a:hover {
         align-items: center;
         gap: 2rem;
         transition: all 0.4s ease-in-out;
+        z-index: 99;
     }
     .menu {
         display: block;
