@@ -1,53 +1,229 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="index.css">
-    <title>Cybersecurity Portfolio</title>
-</head>
-<body>
-    <header class="container">
-        <div class="page-header">
-            <div class="logo">
-                <a href="#">SAFARY.SEC</a>
-            </div>
-            <input type="checkbox" id="click">
-            <label for="click" class="mainicon">
-                <div class="menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </label>
-            <ul>
-                <li><a href="#" class="active" style="--navAni:1">Home</a></li>
-                <li><a href="#" style="--navAni:2">About</a></li>
-                <li><a href="#" style="--navAni:3">Skills</a></li>
-                <li><a href="#" style="--navAni:4">Portfolio</a></li>
-                <li><a href="#" style="--navAni:5">Contact</a></li>
-            </ul>
-        </div>
-    </header>
-    <section class="container">
-        <div class="main">
-            <div class="detail">
-                <h3>Welcome, I'm</h3>
-                <h1><span class="highlight">Harold</span> Safary</h1>
-                <p class="subtitle">Cybersecurity Analyst & Space Weather Enthusiast</p>
-                <p>Bridging the cosmos and cyberspace. I specialize in penetration testing, SOC operations, and purple teaming, with a deep-rooted passion for space weather phenomena and its impact on terrestrial and space-based infrastructure.</p>
-                <button>Get In Touch</button>
-            </div>
-            <div class="hero-image-container">
-                <img src="https://i.imgur.com/g89mG8g.png" alt="Cybersecurity Themed Image" class="hero-image">
-                <div class="tech-icons">
-                    <i class="fab fa-python" title="Python"></i>
-                    <i class="fab fa-docker" title="Docker"></i>
-                    <i class="fas fa-network-wired" title="Networking"></i>
-                    <i class="fas fa-shield-halved" title="Security"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-</body>
-</html>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap');
+
+:root {
+    --primary-glow: #00aaff;
+    --secondary-glow: #ff00ff;
+    --background-dark: #0a0a1a;
+    --text-color: #e0e0e0;
+    --font-primary: 'Orbitron', sans-serif;
+    --font-secondary: 'Roboto Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    background-image: url('https://i.imgur.com/8z3xR8H.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    line-height: 1.6;
+}
+
+/* General */
+.container {
+    padding: 0 8.4rem;
+}
+
+/* Header & Nav */
+header {
+    background: rgba(10, 10, 26, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0, 170, 255, 0.2);
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo a {
+    font-family: var(--font-primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 5px var(--primary-glow);
+}
+
+ul {
+    display: flex;
+    gap: .6rem;
+    list-style-type: none;
+}
+
+li a {
+    display: inline-block;
+    padding: .3rem 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 36px;
+    transition: all .3s;
+}
+
+li a.active,
+li a:hover {
+    color: var(--primary-glow);
+    background: rgba(0, 170, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+}
+
+/* Mobile Menu */
+#click, .menu {
+    display: none;
+}
+
+/* Main Section */
+.main {
+    padding: 6rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.detail h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #aaa;
+}
+
+.detail h1 {
+    font-family: var(--font-primary);
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0.5rem 0;
+}
+
+.detail .highlight {
+    color: var(--primary-glow);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.detail p {
+    font-size: 1rem;
+    color: var(--text-color);
+    max-width: 600px;
+}
+
+button {
+    background-color: transparent;
+    color: var(--primary-glow);
+    border: 2px solid var(--primary-glow);
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+}
+
+button:hover {
+    background-color: var(--primary-glow);
+    color: var(--background-dark);
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+/* Hero Image & Icons */
+.hero-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid var(--primary-glow);
+    box-shadow: 0 0 30px var(--primary-glow), inset 0 0 20px rgba(0, 170, 255, 0.5);
+}
+
+.tech-icons {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 2rem;
+}
+
+.tech-icons i {
+    color: var(--text-color);
+    text-shadow: 0 0 10px var(--secondary-glow);
+    transition: all 0.3s;
+}
+
+.tech-icons i:hover {
+    color: var(--secondary-glow);
+    transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+    .main {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .detail {
+        order: 2;
+    }
+    .hero-image-container {
+        order: 1;
+        margin-bottom: 3rem;
+    }
+    .detail p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    ul {
+        background: var(--background-dark);
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        flex-direction: column;
+        text-align: center;
+        top: 4.5rem;
+        left: -100%;
+        transition: all 0.3s ease;
+    }
+    .menu {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--primary-glow);
+    }
+    #click:checked ~ ul {
+        left: 0;
+    }
+}
